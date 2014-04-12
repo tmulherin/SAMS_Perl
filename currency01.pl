@@ -4,9 +4,12 @@ use strict;
 use warnings;
 use diagnostics;
 
-my $yen = 180;
+use Win32::Console;
+my $CONSOLE = Win32::Console->new(STD_OUTPUT_HANDLE);
+$CONSOLE->Cls($BG_BLUE);
 
-print"49,518 Yen is ", (49518/$yen), " pounds\n";
-print"360 Yen is ",    (  360/$yen), " pounds\n";
-print"100 Yen is ",    (  100/$yen), " pounds\n";
+my $yen = 0;
+my $pound = 180;
+my $pounds = 0;
+my $done = "false";
 
