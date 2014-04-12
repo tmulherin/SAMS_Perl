@@ -29,21 +29,14 @@ while ($done eq 'false'){
              $big_num = $small_num = $input;
              $been_here = 'true';
          } else {
-             if ($input > $big_num){
-                 $big_num = $input;
-             }
-            
-             if ($input < $small_num){
-                 $small_num = $input;
-             }
-         }
-     } else{
-         $done = 'true';
-     }
+             $big_num = $input if $input > $big_num;
+             $small_num = $input if $input < $small_num;
+         } #-> else above
+     } else{ $done = 'true'; }
 } 
-
-@numbers = sort @numbers;
+@numbers = sort { $a <=> $b } @numbers;
 $count = @numbers;
+
 foreach my $item (@numbers){
     print "$item\n";
     $total += $item;
